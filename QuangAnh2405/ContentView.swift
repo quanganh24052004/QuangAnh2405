@@ -8,17 +8,45 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var navigationManager: NavigationManager
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if navigationManager.hasCompletedOnboarding {
+                // User đã hoàn thành onboarding, hiển thị main app
+                Root()
+            } else {
+                // User chưa hoàn thành onboarding, hiển thị onboarding flow
+                OnboardingFlow()
+            }
         }
-        .padding()
+    }
+}
+
+struct OnboardingFlow: View {
+    @EnvironmentObject var navigationManager: NavigationManager
+    
+    var body: some View {
+        NavigationStack {
+            Group {
+                switch navigationManager.currentStep {
+                case .intro:
+                    Intro()
+                case .onboarding1:
+                    Onboard_1()
+                case .onboarding2:
+                    Onboard_2()
+                case .onboarding3:
+                    Onboard_3()
+                case .main:
+                    Root()
+                }
+            }
+        }
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(NavigationManager())
 }
