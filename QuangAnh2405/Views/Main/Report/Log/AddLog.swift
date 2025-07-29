@@ -9,13 +9,15 @@ import SwiftUI
 
 struct AddLog: View {
     @StateObject var userData: UserData
-    @StateObject private var logData = LogData()
+    @StateObject var logData: LogData
+    @Binding var showTabBar: Bool
     @State private var pulseText: String = ""
     @State private var hrvText: String = ""
     @State private var showingAlert = false
     @State private var alertMessage = ""
     
     @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack (spacing: 0) {
             Toolbar(title: "Add Health Log", dismiss: _dismiss)
@@ -51,6 +53,12 @@ struct AddLog: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.background1)
         .navigationBarHidden(true)
+        .onAppear {
+            showTabBar = false
+        }
+        .onDisappear {
+            showTabBar = true
+        }
         .alert("Error", isPresented: $showingAlert) {
             Button("OK") { }
         } message: {

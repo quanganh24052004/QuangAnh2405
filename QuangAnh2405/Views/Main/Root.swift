@@ -9,13 +9,14 @@ import SwiftUI
 
 struct Root: View {
     @State private var selectedTab: Tab = .report
+    @State private var showTabBar: Bool = true
     
     var body: some View {
         ZStack(alignment: .bottom) {
             Group {
                 switch selectedTab {
                 case .report:
-                    Report()
+                    Report(showTabBar: $showTabBar)
                 case .settings:
                     Settings()
                 }
@@ -25,10 +26,11 @@ struct Root: View {
         .background(Color.background1.ignoresSafeArea(.all, edges: .all))
         .navigationBarBackButtonHidden(true)
         .overlay(alignment: .bottom) {
-            TabBar(selectedTab: $selectedTab)
+            if showTabBar {
+                TabBar(selectedTab: $selectedTab)
+            }
         }
         .ignoresSafeArea(.all, edges: .bottom)
-
     }
 }
 

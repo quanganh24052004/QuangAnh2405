@@ -8,11 +8,69 @@
 import SwiftUI
 
 struct ListLog: View {
+    @ObservedObject var logData: LogData
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 16) {
+            if logData.logs.isEmpty {
+                SampleLog()
+            } else {
+                ScrollView {
+                    LazyVStack(spacing: 12) {
+                        ForEach(logData.logs) { log in
+                            LogItemView(log: log)
+                        }
+                    }
+                }
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .background(Color.background1)
+    }
+}
+
+struct LogItemView: View {
+    let log: Log
+    
+    var body: some View {
+        HStack {
+            Image("ic_emptyLog")
+                .frame(width: 56, height: 56)
+                .padding(12)
+            
+            IndexLogView(title: "Pulse", value: "\(log.pulse)")
+            IndexLogView(title: "HRV", value: "\(log.hrv)")
+            IndexLogView(title: "Status", value: log.status.rawValue, valueColor: log.status.color)
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 80)
+        .background(Color.neutral5)
+        .cornerRadius(16)
+    }
+}
+
+struct IndexLogView: View {
+    var title: String = ""
+    var value: String = ""
+    var valueColor: Color = .neutral2
+    
+    var body: some View {
+        VStack (alignment: .leading, spacing: 4) {
+            Text(title)
+                .font(.system(size: 16))
+                .fontWeight(.medium)
+                .foregroundColor(.neutral3)
+                .frame(height: 20)
+            Text(value)
+                .font(.system(size: 16))
+                .fontWeight(.medium)
+                .foregroundColor(valueColor)
+                .frame(height: 32)
+        }
+        .frame(maxWidth: .infinity)
     }
 }
 
 #Preview {
-    ListLog()
+    ListLog(logData: LogData())
 }

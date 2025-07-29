@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Report: View {
     @State var isActive: Bool = false
+    @StateObject private var logData = LogData()
+    @Binding var showTabBar: Bool
     
     var body: some View {
         NavigationStack {
@@ -24,27 +26,25 @@ struct Report: View {
                         .frame(height: 241)
                         .padding(.horizontal, 40)
                         .padding(.vertical, 65)
-                        .foregroundColor(.blue)
                 }
-                SampleLog()
+                
+                ListLog(logData: logData)
+                
                 Spacer()
             }
             .navigationDestination(isPresented: $isActive) {
-                AddLog(userData: UserData())
+                AddLog(userData: UserData(), logData: logData, showTabBar: $showTabBar)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal)
             .background(Color.background1)
-
         }
-
     }
-    
 }
 
-#Preview {
-    Report()
-}
+//#Preview {
+//    Report()
+//}
 
 struct SampleLog: View {
     var body: some View {
