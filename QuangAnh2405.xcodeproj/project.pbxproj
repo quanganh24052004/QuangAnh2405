@@ -16,7 +16,6 @@
 		2C920A822E38358500489483 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C920A812E38358500489483 /* TabBar.swift */; };
 		2C920A862E38359300489483 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C920A842E38359300489483 /* Modifiers.swift */; };
 		2C920A872E38359300489483 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C920A832E38359300489483 /* RoundedCorner.swift */; };
-		2C920A892E3835DC00489483 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C920A882E3835DC00489483 /* Settings.swift */; };
 		2C920A8C2E3835EF00489483 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C920A8B2E3835EF00489483 /* Report.swift */; };
 		2C920A8F2E38361400489483 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C920A8E2E38361400489483 /* Root.swift */; };
 		2C920A912E3848DD00489483 /* TitlePrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C920A902E3848DD00489483 /* TitlePrimary.swift */; };
@@ -53,7 +52,6 @@
 		2C920A812E38358500489483 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		2C920A832E38359300489483 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		2C920A842E38359300489483 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
-		2C920A882E3835DC00489483 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		2C920A8B2E3835EF00489483 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		2C920A8E2E38361400489483 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 		2C920A902E3848DD00489483 /* TitlePrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePrimary.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				2CEEF2932E3883C000741113 /* SettingList.swift */,
-				2C920A882E3835DC00489483 /* Settings.swift */,
 				2C9C845E2E378AFF0056D449 /* Profile */,
 			);
 			path = Settings;
@@ -371,7 +368,6 @@
 				2C9C84562E3785D40056D449 /* CardData.swift in Sources */,
 				2CAA5EED2E376F5900075A04 /* CustomTF.swift in Sources */,
 				2C9C84542E37859C0056D449 /* Card.swift in Sources */,
-				2C920A892E3835DC00489483 /* Settings.swift in Sources */,
 				2C9C845A2E378ADE0056D449 /* OnBoarding.swift in Sources */,
 				2CEEF28F2E3867A800741113 /* Log.swift in Sources */,
 			);

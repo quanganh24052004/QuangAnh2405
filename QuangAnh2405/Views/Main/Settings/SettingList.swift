@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingList: View {
+    @Binding var showTabBar: Bool
     @State private var navigateToProfile = false
     @State private var navigateToDailyReminder = false
     @State private var navigateToChangeAppIcon = false
@@ -18,6 +19,19 @@ struct SettingList: View {
     
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
+    
+    // MARK: - Helper Functions
+    private func hasUserData() -> Bool {
+        let hasName = !firstName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+                     !lastName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        
+        // Kiểm tra weight và height có hợp lệ không
+        let userData = UserData()
+        let hasValidWeight = userData.weight >= 3 && userData.weight <= 200
+        let hasValidHeight = userData.height >= 50 && userData.height <= 230
+        
+        return hasName && hasValidWeight && hasValidHeight
+    }
     
     let sections: [SettingSection] = [
         SettingSection(
@@ -52,19 +66,47 @@ struct SettingList: View {
     var body: some View {
         Group {
             if navigateToProfile {
-                InsertProfile(userData: UserData())
+                if hasUserData() {
+                    Profile(userData: UserData())
+                        .onAppear { showTabBar = false }
+                        .onDisappear { showTabBar = true }
+                } else {
+                    NavigationStack {
+                        InsertProfile(userData: UserData())
+                            .onAppear { showTabBar = false }
+                            .onDisappear {
+                                showTabBar = true
+                                // Kiểm tra lại sau khi user save data
+                                if hasUserData() {
+                                    navigateToProfile = false
+                                }
+                            }
+                    }
+                }
             } else if navigateToDailyReminder {
                 DailyReminderView(navigateToDailyReminder: $navigateToDailyReminder)
+                    .onAppear { showTabBar = false }
+                    .onDisappear { showTabBar = true }
             } else if navigateToChangeAppIcon {
                 ChangeAppIconView(navigateToChangeAppIcon: $navigateToChangeAppIcon)
+                    .onAppear { showTabBar = false }
+                    .onDisappear { showTabBar = true }
             } else if navigateToLanguage {
                 LanguageView(navigateToLanguage: $navigateToLanguage)
+                    .onAppear { showTabBar = false }
+                    .onDisappear { showTabBar = true }
             } else if navigateToPrivacyPolicy {
                 PrivacyPolicyView(navigateToPrivacyPolicy: $navigateToPrivacyPolicy)
+                    .onAppear { showTabBar = false }
+                    .onDisappear { showTabBar = true }
             } else if navigateToFeedback {
                 FeedbackView(navigateToFeedback: $navigateToFeedback)
+                    .onAppear { showTabBar = false }
+                    .onDisappear { showTabBar = true }
             } else if navigateToTermOfUser {
                 TermOfUserView(navigateToTermOfUser: $navigateToTermOfUser)
+                    .onAppear { showTabBar = false }
+                    .onDisappear { showTabBar = true }
             } else {
                 VStack {
                     TitlePrimary(title: "Settings")
@@ -199,7 +241,7 @@ struct SettingList: View {
 }
 
 #Preview {
-    SettingList()
+    SettingList(showTabBar: .constant(true))
 }
 
 // MARK: - Placeholder Views for Navigation

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct InsertProfile: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject var userData: UserData
     @State private var isActive: Bool = false
     
@@ -36,34 +37,35 @@ struct InsertProfile: View {
     
     var body: some View {
         NavigationStack {
+            Toolbar(title: "Information", dismiss: _dismiss)
             VStack (spacing: 21) {
                 HStack (spacing: 12) {
                     CustomTF(
-                        text: $userData.firstName, 
-                        title: "First Name", 
+                        text: $userData.firstName,
+                        title: "First Name",
                         placeholder: "Enter firstname...",
                         keyboardType: .default
                     )
                     CustomTF(
-                        text: $userData.lastName, 
-                        title: "Last Name", 
+                        text: $userData.lastName,
+                        title: "Last Name",
                         placeholder: "Enter lastname...",
                         keyboardType: .default
                     )
                 }
                 
                 GenderSegmentControl(gender: $userData.gender)
-
+                
                 HStack (spacing: 16) {
                     CustomTF(
-                        text: $userData.weight.stringBinding(), 
-                        title: "Weight (kg)", 
+                        text: $userData.weight.stringBinding(),
+                        title: "Weight (kg)",
                         placeholder: "Enter weight...",
                         keyboardType: .decimalPad
                     )
                     CustomTF(
-                        text: $userData.height.stringBinding(), 
-                        title: "Height (cm)", 
+                        text: $userData.height.stringBinding(),
+                        title: "Height (cm)",
                         placeholder: "Enter height...",
                         keyboardType: .decimalPad
                     )
@@ -111,11 +113,13 @@ struct InsertProfile: View {
                 .navigationDestination(isPresented: $isActive) {
                     Profile(userData: userData)
                 }
+
             }
             .padding()
             .background(Color.background1)
             
             Spacer()
+
         }
     }
 }
