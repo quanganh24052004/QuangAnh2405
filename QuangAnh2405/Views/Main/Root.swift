@@ -20,12 +20,15 @@ struct Root: View {
                     Settings()
                 }
             }
-            TabBar(selectedTab: $selectedTab)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.background1)
-        .ignoresSafeArea()
+        .background(Color.background1.ignoresSafeArea(.all, edges: .all))
         .navigationBarBackButtonHidden(true)
+        .overlay(alignment: .bottom) {
+            TabBar(selectedTab: $selectedTab)
+        }
+        .ignoresSafeArea(.all, edges: .bottom)
+
     }
 }
 

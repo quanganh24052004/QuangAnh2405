@@ -8,11 +8,34 @@
 import SwiftUI
 
 struct Report: View {
+    @State var isActive: Bool = false
+    
     var body: some View {
-        ZStack {
-            Color.background1.ignoresSafeArea(edges: .top)
-            Text("Report")
+        NavigationStack {
+            VStack(spacing: 30) {
+                TitlePrimary(title: "Health Guru")
+
+                Button(action: {
+                    isActive = true
+                }) {
+                    Image("img_tapToLog")
+                        .resizable()
+                        .frame(width: 263)
+                        .frame(height: 241)
+                        .padding(.horizontal, 40)
+                        .padding(.vertical, 65)
+                        .foregroundColor(.blue)
+                }
+                
+                Spacer()
+            }
+//            .navigationDestination(isPresented: $isActive) {
+//                AddLog()
+//            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal)
         }
+
 
     }
     

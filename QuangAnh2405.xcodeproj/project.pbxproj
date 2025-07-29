@@ -19,6 +19,7 @@
 		2C920A892E3835DC00489483 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C920A882E3835DC00489483 /* Settings.swift */; };
 		2C920A8C2E3835EF00489483 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C920A8B2E3835EF00489483 /* Report.swift */; };
 		2C920A8F2E38361400489483 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C920A8E2E38361400489483 /* Root.swift */; };
+		2C920A912E3848DD00489483 /* TitlePrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C920A902E3848DD00489483 /* TitlePrimary.swift */; };
 		2C9C84502E3780020056D449 /* GenderSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C844F2E3780020056D449 /* GenderSegmentControl.swift */; };
 		2C9C84542E37859C0056D449 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C84532E37859C0056D449 /* Card.swift */; };
 		2C9C84562E3785D40056D449 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C84552E3785D40056D449 /* CardData.swift */; };
@@ -32,6 +33,10 @@
 		2CAA5EF02E37709A00075A04 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA5EEF2E37709A00075A04 /* UserData.swift */; };
 		2CAA5EF32E37712100075A04 /* InsertProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA5EF22E37712100075A04 /* InsertProfile.swift */; };
 		2CAA5EF52E37712800075A04 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA5EF42E37712800075A04 /* Profile.swift */; };
+		2CEEF2882E3860C600741113 /* AddLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEF2872E3860C600741113 /* AddLog.swift */; };
+		2CEEF28B2E38636200741113 /* LogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEF28A2E38636200741113 /* LogItem.swift */; };
+		2CEEF28D2E38657900741113 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEF28C2E38657900741113 /* Toolbar.swift */; };
+		2CEEF28F2E3867A800741113 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEF28E2E3867A800741113 /* Log.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +52,7 @@
 		2C920A882E3835DC00489483 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		2C920A8B2E3835EF00489483 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		2C920A8E2E38361400489483 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
+		2C920A902E3848DD00489483 /* TitlePrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePrimary.swift; sourceTree = "<group>"; };
 		2C9C844F2E3780020056D449 /* GenderSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSegmentControl.swift; sourceTree = "<group>"; };
 		2C9C84532E37859C0056D449 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		2C9C84552E3785D40056D449 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
@@ -61,6 +67,10 @@
 		2CAA5EEF2E37709A00075A04 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		2CAA5EF22E37712100075A04 /* InsertProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertProfile.swift; sourceTree = "<group>"; };
 		2CAA5EF42E37712800075A04 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		2CEEF2872E3860C600741113 /* AddLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLog.swift; sourceTree = "<group>"; };
+		2CEEF28A2E38636200741113 /* LogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItem.swift; sourceTree = "<group>"; };
+		2CEEF28C2E38657900741113 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
+		2CEEF28E2E3867A800741113 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +98,7 @@
 		2C920A7B2E3827B900489483 /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				2CEEF2862E3860BC00741113 /* Log */,
 				2C920A8B2E3835EF00489483 /* Report.swift */,
 			);
 			path = Report;
@@ -208,10 +219,13 @@
 		2CAA5EEB2E376F3F00075A04 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2CEEF28C2E38657900741113 /* Toolbar.swift */,
 				2C920A812E38358500489483 /* TabBar.swift */,
 				2C9C845F2E378B3E0056D449 /* ButtonPrimary.swift */,
 				2C9C84522E37858F0056D449 /* Onboarding */,
 				2C9C84512E37857F0056D449 /* Insert */,
+				2C920A902E3848DD00489483 /* TitlePrimary.swift */,
+				2CEEF28A2E38636200741113 /* LogItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -220,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				2CAA5EEF2E37709A00075A04 /* UserData.swift */,
+				2CEEF28E2E3867A800741113 /* Log.swift */,
 				2C9C84552E3785D40056D449 /* CardData.swift */,
 			);
 			path = Model;
@@ -232,6 +247,14 @@
 				2C9C845B2E378AE20056D449 /* Onboarding */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2CEEF2862E3860BC00741113 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				2CEEF2872E3860C600741113 /* AddLog.swift */,
+			);
+			path = Log;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,17 +329,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C920A912E3848DD00489483 /* TitlePrimary.swift in Sources */,
 				2CAA5EF32E37712100075A04 /* InsertProfile.swift in Sources */,
+				2CEEF28B2E38636200741113 /* LogItem.swift in Sources */,
 				2C9C84582E378A550056D449 /* CardGrid.swift in Sources */,
 				2C920A822E38358500489483 /* TabBar.swift in Sources */,
 				2C9C84502E3780020056D449 /* GenderSegmentControl.swift in Sources */,
 				2CAA5EF52E37712800075A04 /* Profile.swift in Sources */,
+				2CEEF28D2E38657900741113 /* Toolbar.swift in Sources */,
 				2CAA5EE82E376F2E00075A04 /* ContentView.swift in Sources */,
 				2C920A7D2E3827DB00489483 /* Main.swift in Sources */,
 				2C920A742E38274A00489483 /* Intro.swift in Sources */,
 				2C920A862E38359300489483 /* Modifiers.swift in Sources */,
 				2C920A8C2E3835EF00489483 /* Report.swift in Sources */,
 				2C920A872E38359300489483 /* RoundedCorner.swift in Sources */,
+				2CEEF2882E3860C600741113 /* AddLog.swift in Sources */,
 				2C920A802E382F9300489483 /* NavigationManager.swift in Sources */,
 				2CAA5EE92E376F2E00075A04 /* QuangAnh2405App.swift in Sources */,
 				2C9C84602E378B3E0056D449 /* ButtonPrimary.swift in Sources */,
@@ -330,6 +357,7 @@
 				2C9C84542E37859C0056D449 /* Card.swift in Sources */,
 				2C920A892E3835DC00489483 /* Settings.swift in Sources */,
 				2C9C845A2E378ADE0056D449 /* OnBoarding.swift in Sources */,
+				2CEEF28F2E3867A800741113 /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
