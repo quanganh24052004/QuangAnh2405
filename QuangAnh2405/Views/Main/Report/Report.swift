@@ -26,16 +26,17 @@ struct Report: View {
                         .padding(.vertical, 65)
                         .foregroundColor(.blue)
                 }
-                
+                SampleLog()
                 Spacer()
             }
-//            .navigationDestination(isPresented: $isActive) {
-//                AddLog()
-//            }
+            .navigationDestination(isPresented: $isActive) {
+                AddLog(userData: UserData())
+            }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal)
-        }
+            .background(Color.background1)
 
+        }
 
     }
     
@@ -43,4 +44,40 @@ struct Report: View {
 
 #Preview {
     Report()
+}
+
+struct SampleLog: View {
+    var body: some View {
+        VStack (spacing: 24) {
+            LogItem()
+            
+            VStack (spacing: 4) {
+                HStack (spacing: 4) {
+                    Image("ic_trackDaily")
+                        .frame(width: 28, height: 28)
+                    Text("Track Daily")
+                        .font(.system(size: 16))
+                        .fontWeight(.semibold)
+                        .frame(height: 24)
+                    Spacer()
+                }
+                .frame(height: 24)
+                HStack {
+                    Text("Click heart icon log your data")
+                        .font(.system(size: 14))
+                        .fontWeight(.regular)
+                        .frame(height: 20)
+                        .foregroundColor(.neutral2)
+                    Spacer()
+                }
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
+            .frame(height: 80)
+            .background(Color.neutral5)
+            .cornerRadius(16)
+
+                
+        }
+    }
 }
