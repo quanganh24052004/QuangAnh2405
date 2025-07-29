@@ -41,12 +41,14 @@ struct OnBoarding: View {
 
             ButtonPrimary(title: "Continue", style: .constant(canProceed ? .active : .inactive), isEnabled: .constant(canProceed), action: {
                 if canProceed {
-                    // Nếu đã hoàn thành onboarding 3, complete onboarding
-                    if navigationManager.currentStep == .onboarding3 {
-                        navigationManager.completeOnboarding()
-                    } else {
-                        // Chuyển đến step tiếp theo
-                        navigationManager.currentStep = nextStep
+                    withAnimation(.easeInOut(duration: 0.5)) {
+                        // Nếu đã hoàn thành onboarding 3, complete onboarding
+                        if navigationManager.currentStep == .onboarding3 {
+                            navigationManager.completeOnboarding()
+                        } else {
+                            // Chuyển đến step tiếp theo
+                            navigationManager.currentStep = nextStep
+                        }
                     }
                 }
             })

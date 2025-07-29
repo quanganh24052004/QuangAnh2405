@@ -33,7 +33,9 @@ struct Intro: View {
             
             // Nut Continue
             ButtonPrimary(title: "Continue", style: .constant(.active), isEnabled: .constant(true), action: {
-                navigationManager.currentStep = .onboarding1
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    navigationManager.currentStep = .onboarding1
+                }
             })
             .padding(.horizontal, 16)
             .padding(.bottom, 16)
