@@ -39,72 +39,35 @@ struct Profile: View {
                     .foregroundColor(getBMIColor())
                     .frame(height: 64)
                 
-                Text(getBMICategory())
-                    .font(.system(size: 14))
-                    .fontWeight(.medium)
-                    .foregroundColor(getBMIColor())
-                
                 Rectangle()
                     .frame(height: 0.5)
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color.line)
                 
-                HStack (spacing: 0) {
-                    VStack (alignment: .center, spacing: 5) {
-                        Text("\(userData.weight) kg")
-                            .font(.system(size: 20))
-                            .fontWeight(.semibold)
-                            .frame(height: 24)
-                            .foregroundColor(getBMIColor())
-                        Text("Weight")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                            .frame(height: 14)
-                            .foregroundColor(Color.neutral3)
-                    }
-                    .frame(maxWidth: .infinity)
-                    
-                    VStack (alignment: .center, spacing: 5) {
-                        Text("\(userData.weight) cm")
-                            .font(.system(size: 20))
-                            .fontWeight(.semibold)
-                            .frame(height: 24)
-                            .foregroundColor(getBMIColor())
-                        Text("Height")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                            .frame(height: 14)
-                            .foregroundColor(Color.neutral3)
-                    }
-                    .frame(maxWidth: .infinity)
-                    
-                    VStack (alignment: .center, spacing: 5) {
-                        Text("20")
-                            .font(.system(size: 20))
-                            .fontWeight(.semibold)
-                            .frame(height: 24)
-                            .foregroundColor(getBMIColor())
-                        Text("Age")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                            .frame(height: 14)
-                            .foregroundColor(Color.neutral3)
-                    }
-                    .frame(maxWidth: .infinity)
-                    
-                    VStack (alignment: .center, spacing: 5) {
-                        Text("\(userData.gender)")
-                            .font(.system(size: 20))
-                            .fontWeight(.semibold)
-                            .frame(height: 24)
-                            .foregroundColor(getBMIColor())
-                        Text("Gender")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                            .frame(height: 14)
-                            .foregroundColor(Color.neutral3)
-                    }
-                    .frame(maxWidth: .infinity)
+                HStack(spacing: 0) {
+                    ProfileInfoCard(
+                        value: "\(Int(userData.weight)) kg",
+                        title: "Weight",
+                        color: getBMIColor()
+                    )
+                    Spacer()
+                    ProfileInfoCard(
+                        value: "\(Int(userData.height)) cm",
+                        title: "Height",
+                        color: getBMIColor()
+                    )
+                    Spacer()
+                    ProfileInfoCard(
+                        value: "20",
+                        title: "Age",
+                        color: getBMIColor()
+                    )
+                    Spacer()
+                    ProfileInfoCard(
+                        value: userData.gender ? "Male" : "Female",
+                        title: "Gender",
+                        color: getBMIColor()
+                    )
                 }
                 
             }
@@ -127,45 +90,44 @@ struct Profile: View {
         return userData.weight / (heightInMeters * heightInMeters)
     }
     
-    private func getBMICategory() -> String {
-        let bmi = calculateBMI()
-        
-        switch bmi {
-        case 0..<18.5:
-            return "Underweight"
-        case 18.5..<25:
-            return "Normal Weight"
-        case 25..<30:
-            return "Overweight"
-        case 30..<35:
-            return "Obese Class I"
-        case 35..<40:
-            return "Obese Class II"
-        default:
-            return "Obese Class III"
-        }
-    }
-    
     private func getBMIColor() -> Color {
         let bmi = calculateBMI()
         
         switch bmi {
-        case 0..<18.5:
+        case ..<18.5:
             return .low
         case 18.5..<25:
-            return .low
-        case 25..<30:
             return .good
-        case 30..<35:
-            return .warning
-        case 35..<40:
-            return .warning
         default:
-            return .red
+            return .warning
         }
     }
 }
 
 #Preview {
     Profile(userData: UserData())
+}
+
+// MARK: - Reusable Profile Info Card
+struct ProfileInfoCard: View {
+    let value: String
+    let title: String
+    let color: Color
+    
+    var body: some View {
+        VStack(alignment: .center, spacing: 5) {
+            Text(value)
+                .font(.system(size: 20))
+                .fontWeight(.semibold)
+                .frame(height: 24)
+                .foregroundColor(color)
+            
+            Text(title)
+                .font(.system(size: 14))
+                .fontWeight(.medium)
+                .frame(height: 14)
+                .foregroundColor(Color.neutral3)
+        }
+//        .frame(maxWidth: .infinity)
+    }
 }
