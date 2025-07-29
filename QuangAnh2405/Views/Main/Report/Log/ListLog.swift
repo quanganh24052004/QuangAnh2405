@@ -33,14 +33,19 @@ struct LogItemView: View {
     let log: Log
     
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
             Image("ic_emptyLog")
                 .frame(width: 56, height: 56)
                 .padding(12)
             
-            IndexLogView(title: "Pulse", value: "\(log.pulse)")
-            IndexLogView(title: "HRV", value: "\(log.hrv)")
-            IndexLogView(title: "Status", value: log.status.rawValue, valueColor: log.status.color)
+            HStack(spacing: 0) {
+                IndexLogView(title: "Pulse", value: "\(log.pulse) bpm")
+                IndexLogView(title: "HRV", value: "\(log.hrv) ms")
+                IndexLogView(title: "Status", value: log.status.rawValue, valueColor: log.status.color)
+            }
+            .frame(maxWidth: .infinity)
+            
+            Spacer()
         }
         .frame(maxWidth: .infinity)
         .frame(height: 80)
@@ -55,17 +60,23 @@ struct IndexLogView: View {
     var valueColor: Color = .neutral2
     
     var body: some View {
-        VStack (alignment: .leading, spacing: 4) {
-            Text(title)
-                .font(.system(size: 16))
-                .fontWeight(.medium)
-                .foregroundColor(.neutral3)
-                .frame(height: 20)
-            Text(value)
-                .font(.system(size: 16))
-                .fontWeight(.medium)
-                .foregroundColor(valueColor)
-                .frame(height: 32)
+        VStack(spacing: 4) {
+            HStack {
+                Text(title)
+                    .font(.system(size: 14))
+                    .fontWeight(.medium)
+                    .foregroundColor(.neutral3)
+                    .frame(height: 20)
+                Spacer()
+            }
+            HStack {
+                Text(value)
+                    .font(.system(size: 16))
+                    .fontWeight(.medium)
+                    .foregroundColor(valueColor)
+                    .frame(height: 24)
+                Spacer()
+            }
         }
         .frame(maxWidth: .infinity)
     }

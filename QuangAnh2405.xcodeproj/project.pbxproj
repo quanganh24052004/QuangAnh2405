@@ -38,6 +38,9 @@
 		2CEEF28D2E38657900741113 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEF28C2E38657900741113 /* Toolbar.swift */; };
 		2CEEF28F2E3867A800741113 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEF28E2E3867A800741113 /* Log.swift */; };
 		2CEEF2922E3875B400741113 /* ListLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEF2912E3875B400741113 /* ListLog.swift */; };
+		2CEEF2942E3883C000741113 /* SettingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEF2932E3883C000741113 /* SettingList.swift */; };
+		2CEEF2962E3883E700741113 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEF2952E3883E700741113 /* SettingItem.swift */; };
+		2CEEF2982E38845700741113 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEF2972E38845700741113 /* Setting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +76,9 @@
 		2CEEF28C2E38657900741113 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		2CEEF28E2E3867A800741113 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		2CEEF2912E3875B400741113 /* ListLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLog.swift; sourceTree = "<group>"; };
+		2CEEF2932E3883C000741113 /* SettingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingList.swift; sourceTree = "<group>"; };
+		2CEEF2952E3883E700741113 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
+		2CEEF2972E38845700741113 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,7 @@
 		2C9C845D2E378AEE0056D449 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				2CEEF2932E3883C000741113 /* SettingList.swift */,
 				2C920A882E3835DC00489483 /* Settings.swift */,
 				2C9C845E2E378AFF0056D449 /* Profile */,
 			);
@@ -221,6 +228,7 @@
 		2CAA5EEB2E376F3F00075A04 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2CEEF2972E38845700741113 /* Setting.swift */,
 				2CEEF28C2E38657900741113 /* Toolbar.swift */,
 				2C920A812E38358500489483 /* TabBar.swift */,
 				2C9C845F2E378B3E0056D449 /* ButtonPrimary.swift */,
@@ -235,6 +243,7 @@
 		2CAA5EEE2E37708400075A04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2CEEF2952E3883E700741113 /* SettingItem.swift */,
 				2CAA5EEF2E37709A00075A04 /* UserData.swift */,
 				2CEEF28E2E3867A800741113 /* Log.swift */,
 				2C9C84552E3785D40056D449 /* CardData.swift */,
@@ -339,6 +348,7 @@
 				2CEEF2922E3875B400741113 /* ListLog.swift in Sources */,
 				2C920A822E38358500489483 /* TabBar.swift in Sources */,
 				2C9C84502E3780020056D449 /* GenderSegmentControl.swift in Sources */,
+				2CEEF2942E3883C000741113 /* SettingList.swift in Sources */,
 				2CAA5EF52E37712800075A04 /* Profile.swift in Sources */,
 				2CEEF28D2E38657900741113 /* Toolbar.swift in Sources */,
 				2CAA5EE82E376F2E00075A04 /* ContentView.swift in Sources */,
@@ -348,6 +358,7 @@
 				2C920A8C2E3835EF00489483 /* Report.swift in Sources */,
 				2C920A872E38359300489483 /* RoundedCorner.swift in Sources */,
 				2CEEF2882E3860C600741113 /* AddLog.swift in Sources */,
+				2CEEF2982E38845700741113 /* Setting.swift in Sources */,
 				2C920A802E382F9300489483 /* NavigationManager.swift in Sources */,
 				2CAA5EE92E376F2E00075A04 /* QuangAnh2405App.swift in Sources */,
 				2C9C84602E378B3E0056D449 /* ButtonPrimary.swift in Sources */,
@@ -356,6 +367,7 @@
 				2C920A7A2E38275D00489483 /* Onboard_1.swift in Sources */,
 				2C920A8F2E38361400489483 /* Root.swift in Sources */,
 				2CAA5EF02E37709A00075A04 /* UserData.swift in Sources */,
+				2CEEF2962E3883E700741113 /* SettingItem.swift in Sources */,
 				2C9C84562E3785D40056D449 /* CardData.swift in Sources */,
 				2CAA5EED2E376F5900075A04 /* CustomTF.swift in Sources */,
 				2C9C84542E37859C0056D449 /* Card.swift in Sources */,

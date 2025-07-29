@@ -11,8 +11,22 @@ struct Settings: View {
     var body: some View {
         ZStack {
             Color.background1.ignoresSafeArea(edges: .top)
-            Text("Settings")
-        }    }
+            VStack (spacing: 0) {
+                
+                Text("Settings")
+                    .font(.system(size:32))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.neutral1)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(height: 44)
+                    .padding(.horizontal, 16)
+                
+                SettingList()
+                    .padding(.bottom, 96)
+                Spacer()
+            }
+        }
+    }
 }
 
 #Preview {

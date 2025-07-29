@@ -30,18 +30,18 @@ struct Log: Identifiable, Codable {
 
 // MARK: - Health Status Enum
 enum HealthStatus: String, CaseIterable, Codable {
-    case bad = "Bad"
+    case low = "Low"
     case warning = "Warning"
     case good = "Good"
     
     var color: Color {
         switch self {
-        case .bad:
-            return .red
+        case .low:
+            return .low
         case .warning:
-            return .orange
+            return .warning
         case .good:
-            return .green
+            return .good
         }
     }
     
@@ -74,7 +74,7 @@ enum HealthStatus: String, CaseIterable, Codable {
         case 1...2:
             return .warning
         default:
-            return .bad
+            return .low
         }
     }
 }
