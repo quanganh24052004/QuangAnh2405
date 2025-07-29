@@ -12,7 +12,7 @@ struct Report: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 30) {
+            VStack(spacing: 0) {
                 TitlePrimary(title: "Health Guru")
 
                 Button(action: {
@@ -76,8 +76,6 @@ struct SampleLog: View {
             .frame(height: 80)
             .background(Color.neutral5)
             .cornerRadius(16)
-
-                
         }
     }
 }
