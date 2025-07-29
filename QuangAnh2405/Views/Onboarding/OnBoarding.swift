@@ -1,38 +1,22 @@
 import SwiftUI
 
-struct OnBoarding<Destination: View>: View {
-    @AppStorage("onboardingStep") var onboardingStep: Int = 0
-    @State private var isActive: Bool = false
+struct OnBoarding: View {
     @EnvironmentObject var navigationManager: NavigationManager
     var title: String
-    var nextView: () -> Destination
     var data: [CardData]
+    var nextStep: NavigationManager.OnboardingStep
     
     // Computed property để check validation
     private var canProceed: Bool {
-        switch onboardingStep {
-        case 1:
+        switch navigationManager.currentStep {
+        case .onboarding1:
             return !navigationManager.selectedCardsOnboarding1.isEmpty
-        case 2:
+        case .onboarding2:
             return !navigationManager.selectedCardsOnboarding2.isEmpty
-        case 3:
+        case .onboarding3:
             return !navigationManager.selectedCardsOnboarding3.isEmpty
         default:
             return true
-        }
-    }
-    
-    // Function để get current step
-    private func getCurrentStep() -> NavigationManager.OnboardingStep {
-        switch onboardingStep {
-        case 1:
-            return .onboarding1
-        case 2:
-            return .onboarding2
-        case 3:
-            return .onboarding3
-        default:
-            return .intro
         }
     }
     
@@ -48,34 +32,33 @@ struct OnBoarding<Destination: View>: View {
 
             
             ScrollView {
-                CardGrid(data: data, currentStep: getCurrentStep())
+                CardGrid(data: data, currentStep: navigationManager.currentStep)
                     .padding(.vertical, 1)
             }
             .padding(.vertical, 24)
             
             Spacer()
 
-
             ButtonPrimary(title: "Continue", style: .constant(canProceed ? .active : .inactive), isEnabled: .constant(canProceed), action: {
                 if canProceed {
-                    onboardingStep += 1
-                    
-                    // Delay navigation để animation hoàn thành trước
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        isActive = true
+                    // Nếu đã hoàn thành onboarding 3, complete onboarding
+                    if navigationManager.currentStep == .onboarding3 {
+                        navigationManager.completeOnboarding()
+                    } else {
+                        // Chuyển đến step tiếp theo
+                        navigationManager.currentStep = nextStep
                     }
                 }
             })
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 24)
             .padding(.bottom, 16)
-            .navigationDestination(isPresented: $isActive, destination: nextView)
-            .navigationBarBackButtonHidden(true)
         }
-        .animation(.easeInOut, value: onboardingStep)
+        .animation(.easeInOut(duration: 0.3), value: navigationManager.currentStep)
         .background(Color.background1)
     }
 }
 
 #Preview {
-    OnBoarding(title: "", nextView: { Text("") }, data: [])
+    OnBoarding(title: "Test", data: [], nextStep: .onboarding1)
+        .environmentObject(NavigationManager())
 }
