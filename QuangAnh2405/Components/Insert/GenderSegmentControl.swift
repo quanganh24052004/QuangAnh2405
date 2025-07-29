@@ -39,6 +39,7 @@ struct GenderSegmentControl: View {
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 6)
                         .background(!gender ? Color.white : Color.clear)
+                        .cornerRadius(7)
                 }
             }
             .background(Color.neutral4)

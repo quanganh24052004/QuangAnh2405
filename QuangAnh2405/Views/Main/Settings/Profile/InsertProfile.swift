@@ -100,19 +100,17 @@ struct InsertProfile: View {
                 
                 Spacer()
                 
-                Button("Save") {
-                    isActive = true
-                }
+                ButtonPrimary(
+                    title: "Update",
+                    style: .constant(isFormValid ? .active : .inactive),
+                    isEnabled: .constant(isFormValid),
+                    action: {
+                        isActive = true
+                    }
+                )
                 .navigationDestination(isPresented: $isActive) {
                     Profile(userData: userData)
                 }
-                .disabled(!isFormValid)
-                .opacity(isFormValid ? 1.0 : 0.5)
-                .padding(.horizontal, 32)
-                .padding(.vertical, 16)
-                .background(isFormValid ? Color.blue : Color.gray)
-                .foregroundColor(.white)
-                .cornerRadius(12)
             }
             .padding()
             .background(Color.background1)

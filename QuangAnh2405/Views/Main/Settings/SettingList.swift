@@ -66,113 +66,122 @@ struct SettingList: View {
             } else if navigateToTermOfUser {
                 TermOfUserView(navigateToTermOfUser: $navigateToTermOfUser)
             } else {
-                // Main Settings List
-                List {
-                    ForEach(sections) { section in
-                        Section {
-                            ForEach(section.items) { item in
-                                if item.title == "Profile" {
-                                    Setting(
-                                        iconName: item.iconName,
-                                        title: item.title,
-                                        trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
-                                        action: {
-                                            navigateToProfile = true
-                                        }
-                                    )
-                                    .listRowInsets(EdgeInsets())
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 12)
-                                } else if item.title == "Daily Reminder" {
-                                    Setting(
-                                        iconName: item.iconName,
-                                        title: item.title,
-                                        trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
-                                        action: {
-                                            navigateToDailyReminder = true
-                                        }
-                                    )
-                                    .listRowInsets(EdgeInsets())
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 12)
-                                } else if item.title == "Change App Icon" {
-                                    Setting(
-                                        iconName: item.iconName,
-                                        title: item.title,
-                                        trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
-                                        action: {
-                                            navigateToChangeAppIcon = true
-                                        }
-                                    )
-                                    .listRowInsets(EdgeInsets())
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 12)
-                                } else if item.title == "Language" {
-                                    Setting(
-                                        iconName: item.iconName,
-                                        title: item.title,
-                                        trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
-                                        action: {
-                                            navigateToLanguage = true
-                                        }
-                                    )
-                                    .listRowInsets(EdgeInsets())
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 12)
-                                } else if item.title == "Privacy Policy" {
-                                    Setting(
-                                        iconName: item.iconName,
-                                        title: item.title,
-                                        trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
-                                        action: {
-                                            navigateToPrivacyPolicy = true
-                                        }
-                                    )
-                                    .listRowInsets(EdgeInsets())
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 12)
-                                } else if item.title == "FeedBack" {
-                                    Setting(
-                                        iconName: item.iconName,
-                                        title: item.title,
-                                        trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
-                                        action: {
-                                            navigateToFeedback = true
-                                        }
-                                    )
-                                    .listRowInsets(EdgeInsets())
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 12)
-                                } else if item.title == "Term of User" {
-                                    Setting(
-                                        iconName: item.iconName,
-                                        title: item.title,
-                                        trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
-                                        action: {
-                                            navigateToTermOfUser = true
-                                        }
-                                    )
-                                    .listRowInsets(EdgeInsets())
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 12)
-                                } else {
-                                    // Other items (like Clear UserData)
-                                    Setting(
-                                        iconName: item.iconName,
-                                        title: item.title,
-                                        trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
-                                        action: item.action
-                                    )
-                                    .listRowInsets(EdgeInsets())
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 12)
+                VStack {
+                    TitlePrimary(title: "Settings")
+                        .padding(.horizontal, 16)
+                    
+                    List {
+                        ForEach(sections) { section in
+                            Section {
+                                ForEach(section.items) { item in
+                                    if item.title == "Profile" {
+                                        Setting(
+                                            iconName: item.iconName,
+                                            title: item.title,
+                                            trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
+                                            action: {
+                                                navigateToProfile = true
+                                            }
+                                        )
+                                        .listRowInsets(EdgeInsets())
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 12)
+                                    } else if item.title == "Daily Reminder" {
+                                        Setting(
+                                            iconName: item.iconName,
+                                            title: item.title,
+                                            trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
+                                            action: {
+                                                navigateToDailyReminder = true
+                                            }
+                                        )
+                                        .listRowInsets(EdgeInsets())
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 12)
+                                    } else if item.title == "Change App Icon" {
+                                        Setting(
+                                            iconName: item.iconName,
+                                            title: item.title,
+                                            trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
+                                            action: {
+                                                navigateToChangeAppIcon = true
+                                            }
+                                        )
+                                        .listRowInsets(EdgeInsets())
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 12)
+                                    } else if item.title == "Language" {
+                                        Setting(
+                                            iconName: item.iconName,
+                                            title: item.title,
+                                            trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
+                                            action: {
+                                                navigateToLanguage = true
+                                            }
+                                        )
+                                        .listRowInsets(EdgeInsets())
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 12)
+                                    } else if item.title == "Privacy Policy" {
+                                        Setting(
+                                            iconName: item.iconName,
+                                            title: item.title,
+                                            trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
+                                            action: {
+                                                navigateToPrivacyPolicy = true
+                                            }
+                                        )
+                                        .listRowInsets(EdgeInsets())
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 12)
+                                    } else if item.title == "FeedBack" {
+                                        Setting(
+                                            iconName: item.iconName,
+                                            title: item.title,
+                                            trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
+                                            action: {
+                                                navigateToFeedback = true
+                                            }
+                                        )
+                                        .listRowInsets(EdgeInsets())
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 12)
+                                    } else if item.title == "Term of User" {
+                                        Setting(
+                                            iconName: item.iconName,
+                                            title: item.title,
+                                            trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
+                                            action: {
+                                                navigateToTermOfUser = true
+                                            }
+                                        )
+                                        .listRowInsets(EdgeInsets())
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 12)
+                                    } else {
+                                        // Other items (like Clear UserData)
+                                        Setting(
+                                            iconName: item.iconName,
+                                            title: item.title,
+                                            trailingIcon: item.hasTrailing ? Image("ic_buttonRight") : nil,
+                                            action: item.action
+                                        )
+                                        .listRowInsets(EdgeInsets())
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 12)
+                                    }
                                 }
                             }
+                            .padding(.vertical, 4)
+                            .cornerRadius(12)
                         }
-                        .padding(.vertical, 4)
-                        .cornerRadius(12)
                     }
+                    .background(Color.clear)
+                    .scrollContentBackground(.hidden)
+                    .listSectionSpacing(16)
                 }
+                .padding(.bottom, 96)
+
             }
         }
         .animation(.easeInOut(duration: 0.3), value: navigateToProfile)

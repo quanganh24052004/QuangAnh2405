@@ -18,7 +18,7 @@ struct Root: View {
                 case .report:
                     Report(showTabBar: $showTabBar)
                 case .settings:
-                    Settings()
+                    SettingList()
                 }
             }
         }

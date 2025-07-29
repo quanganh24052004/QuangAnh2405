@@ -38,6 +38,8 @@ class UserData: ObservableObject {
             UserDefaults.standard.set(gender, forKey: "gender")
         }
     }
+    
+
 
     init() {
         let firstName = UserDefaults.standard.string(forKey: "first_name") ?? ""
@@ -46,7 +48,6 @@ class UserData: ObservableObject {
         let height = UserDefaults.standard.double(forKey: "height")
         let gender = UserDefaults.standard.bool(forKey: "gender")
 
-        // Sau khi đọc xong tất cả thì mới gán vào self
         self.firstName = firstName
         self.lastName = lastName
         self.weight = weight

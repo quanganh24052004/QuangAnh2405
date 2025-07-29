@@ -39,8 +39,8 @@ struct LogItemView: View {
                 .padding(12)
             
             HStack(spacing: 0) {
-                IndexLogView(title: "Pulse", value: "\(log.pulse) bpm")
-                IndexLogView(title: "HRV", value: "\(log.hrv) ms")
+                IndexLogView(title: "Pulse", value: "\(log.pulse) bpm", valueColor: log.status.color)
+                IndexLogView(title: "HRV", value: "\(log.hrv) ms", valueColor: log.status.color)
                 IndexLogView(title: "Status", value: log.status.rawValue, valueColor: log.status.color)
             }
             .frame(maxWidth: .infinity)
