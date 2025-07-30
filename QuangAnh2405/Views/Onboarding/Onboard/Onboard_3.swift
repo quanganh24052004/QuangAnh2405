@@ -10,7 +10,7 @@ import SwiftUI
 struct Onboard_3: View {
     var body: some View {
         OnBoarding(
-            title: "What type of plan \n would you like to follow?",
+            title: "What type of plan would\nyou like to follow?",
             data: [
                .init(imageCard: "ic_educationalPlan", titleCard: "Educational Plan"),
                .init(imageCard: "ic_exercisePlan", titleCard: "Exercise Plan"),

@@ -8,23 +8,24 @@
 import SwiftUI
 
 struct Toolbar: View {
+    var buttonLeft: String = ""
     let title: String
+    
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
+        
         HStack {
-            // Back button
             Button(action: {
                 dismiss()
             }) {
-                Image("ic_buttonClose")
+                Image(buttonLeft)
                     .foregroundColor(Color.neutral2)
                     .font(.system(size: 16, weight: .bold))
             }
 
             Spacer()
 
-            // Title
             Text(title)
                 .font(.system(size: 20, weight: .bold))
                 .foregroundColor(Color.neutral1)
@@ -44,10 +45,10 @@ struct Toolbar: View {
 struct FullToolbar: View {
     let title: String
     @Environment(\.dismiss) var dismiss
+    var editAction: (() -> Void)? = nil
 
     var body: some View {
         HStack {
-            // Back button
             Button(action: {
                 dismiss()
             }) {
@@ -65,11 +66,22 @@ struct FullToolbar: View {
 
             Spacer()
             
-            EditButton()
+            if let editAction = editAction {
+                Button(action: editAction) {
+                    Text("Edit")
+                        .foregroundColor(Color.primary1)
+                        .font(.system(size: 16, weight: .semibold))
+                }
+            } else {
+                EditButton()
+            }
         }
         .padding(.horizontal)
+        .frame(height: 44)
+        .background(Color.clear)
     }
 }
+
 struct EditButton: View {
     var body: some View {
         Button(action: {

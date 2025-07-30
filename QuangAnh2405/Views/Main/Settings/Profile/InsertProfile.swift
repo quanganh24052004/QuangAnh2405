@@ -10,7 +10,6 @@ import SwiftUI
 struct InsertProfile: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var userData: UserData
-    @State private var isActive: Bool = false
     
     // Validation computed properties
     private var isFirstNameValid: Bool {
@@ -37,7 +36,7 @@ struct InsertProfile: View {
     
     var body: some View {
         NavigationStack {
-            Toolbar(title: "Information", dismiss: _dismiss)
+            Toolbar(buttonLeft: "ic_buttonBack", title: "Information", dismiss: _dismiss)
             VStack (spacing: 21) {
                 HStack (spacing: 12) {
                     CustomTF(
@@ -71,8 +70,6 @@ struct InsertProfile: View {
                     )
                 }
                 
-                
-                // Validation messages
                 VStack(alignment: .leading, spacing: 8) {
                     if !isFirstNameValid && !userData.firstName.isEmpty {
                         Text("First name must contain only letters")
@@ -107,20 +104,16 @@ struct InsertProfile: View {
                     style: .constant(isFormValid ? .active : .inactive),
                     isEnabled: .constant(isFormValid),
                     action: {
-                        isActive = true
+                        dismiss()
                     }
                 )
-                .navigationDestination(isPresented: $isActive) {
-                    Profile(userData: userData)
-                }
 
             }
             .padding()
-            .background(Color.background1)
-            
             Spacer()
-
         }
+        .navigationBarBackButtonHidden(true)
+        .background(Color.background1)
     }
 }
 

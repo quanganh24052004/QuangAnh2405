@@ -32,6 +32,7 @@ struct Report: View {
                 
                 Spacer()
             }
+            .padding(.bottom, 96)
             .navigationDestination(isPresented: $isActive) {
                 AddLog(userData: UserData(), logData: logData, showTabBar: $showTabBar)
             }
@@ -55,7 +56,7 @@ struct SampleLog: View {
                 HStack (spacing: 4) {
                     Image("ic_trackDaily")
                         .frame(width: 28, height: 28)
-                    Text("Track Daily")
+                    Text("Track daily")
                         .font(.system(size: 16))
                         .fontWeight(.semibold)
                         .frame(height: 24)
@@ -63,7 +64,7 @@ struct SampleLog: View {
                 }
                 .frame(height: 24)
                 HStack {
-                    Text("Click heart icon log your data")
+                    Text("Click heart icon to log your data")
                         .font(.system(size: 14))
                         .fontWeight(.regular)
                         .frame(height: 20)

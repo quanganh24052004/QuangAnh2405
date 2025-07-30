@@ -20,7 +20,7 @@ struct AddLog: View {
     
     var body: some View {
         VStack (spacing: 0) {
-            Toolbar(title: "Add Health Log", dismiss: _dismiss)
+            Toolbar(buttonLeft: "ic_buttonClose", title: "Information", dismiss: _dismiss)
                 .padding(.bottom, 24)
             
             HStack(spacing: 12) {

@@ -35,10 +35,11 @@ struct Setting: View {
             }
             .padding(.vertical, 12)
             .frame(maxWidth: .infinity, maxHeight: 28)
-            .background(Color.white)
+            
             
         }
-        .buttonStyle(PlainButtonStyle())
+//        .buttonStyle(PlainButtonStyle())
+        .background(Color.white)
     }
 }
 

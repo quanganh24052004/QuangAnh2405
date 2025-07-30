@@ -52,7 +52,7 @@ struct OnBoarding: View {
                     }
                 }
             })
-            .padding(.horizontal, 24)
+            .padding(.horizontal, 16)
             .padding(.bottom, 16)
         }
         .animation(.easeInOut(duration: 0.3), value: navigationManager.currentStep)

@@ -11,11 +11,14 @@ struct Profile: View {
     
     @ObservedObject var userData: UserData
     @Environment(\.dismiss) var dismiss
+    @State private var showEditSheet = false
 
     var body: some View {
         VStack(spacing: 0) {
-            FullToolbar(title: "Profile", dismiss: _dismiss)
-                .padding(.bottom, 24)
+            FullToolbar(title: "Profile", dismiss: _dismiss, editAction: {
+                showEditSheet = true
+            })
+            .padding(.bottom, 24)
             VStack(spacing: 24) {
                 Image("ic_avatar")
                     .resizable()
@@ -81,6 +84,9 @@ struct Profile: View {
         }
         .navigationBarBackButtonHidden(true)
         .background(Color.background1)
+        .navigationDestination(isPresented: $showEditSheet) {
+            InsertProfile(userData: userData)
+        }
     }
     
     // MARK: - BMI Calculation Functions
@@ -128,6 +134,5 @@ struct ProfileInfoCard: View {
                 .frame(height: 14)
                 .foregroundColor(Color.neutral3)
         }
-//        .frame(maxWidth: .infinity)
     }
 }

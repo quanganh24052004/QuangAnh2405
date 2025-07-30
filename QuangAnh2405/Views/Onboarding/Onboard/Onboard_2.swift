@@ -11,7 +11,7 @@ struct Onboard_2: View {
     
     var body: some View {
         OnBoarding(
-            title: "Which which you like to \n achive?",
+            title: "What would you like to \n achieve?",
             data: [
                 .init(imageCard: "ic_improveHeartHealth", titleCard: "Improve Heart Health"),
                 .init(imageCard: "ic_improveBloodPressureHealth", titleCard: "Improve blood pressure health"),

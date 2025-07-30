@@ -39,8 +39,8 @@ struct LogItemView: View {
                 .padding(12)
             
             HStack(spacing: 0) {
-                IndexLogView(title: "Pulse", value: "\(log.pulse) bpm", valueColor: log.status.color)
-                IndexLogView(title: "HRV", value: "\(log.hrv) ms", valueColor: log.status.color)
+                IndexLogView(title: "Pulse", value: "\(log.pulse)", subValue: "bpm", valueColor: log.status.color)
+                IndexLogView(title: "HRV", value: "\(log.hrv)", subValue: "ms", valueColor: log.status.color)
                 IndexLogView(title: "Status", value: log.status.rawValue, valueColor: log.status.color)
             }
             .frame(maxWidth: .infinity)
@@ -57,6 +57,7 @@ struct LogItemView: View {
 struct IndexLogView: View {
     var title: String = ""
     var value: String = ""
+    var subValue: String = ""
     var valueColor: Color = .neutral2
     
     var body: some View {
@@ -69,12 +70,17 @@ struct IndexLogView: View {
                     .frame(height: 20)
                 Spacer()
             }
-            HStack {
+            HStack (spacing: 4) {
                 Text(value)
                     .font(.system(size: 16))
+                    .fontWeight(.bold)
+                    .foregroundColor(valueColor)
+                    .frame(height: 32)
+                Text(subValue)
+                    .font(.system(size: 14))
                     .fontWeight(.medium)
                     .foregroundColor(valueColor)
-                    .frame(height: 24)
+                    .frame(height: 28)
                 Spacer()
             }
         }
